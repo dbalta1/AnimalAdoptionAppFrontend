@@ -7,7 +7,7 @@ import Register from './pages/Register';
 import AnimalProfile from './pages/AnimalProfile';
 import Animals from './pages/Animals';
 import About from './pages/About'; 
-import Donate from './pages/Donate'
+import DonationForm from './pages/DonationForm'
 
 
 import './App.css';
@@ -22,7 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/animals" element={<Animals />} />
         <Route path="/about" element={<About />} />
-        <Route path="/donate" element={<Donate />} />
+        <Route path="/donate" element={<DonationForm />} />
         <Route path="/animals/:id" element={<AnimalProfile />} />
 
       </Routes>
