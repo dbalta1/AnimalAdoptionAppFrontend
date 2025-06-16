@@ -36,7 +36,7 @@ const AnimalProfile = () => {
         goodWithKids: false,
         goodWithPets: true,
         healthIssues: false,
-        location: 'Ostrožac',
+        location: 'Jablanica',
         description: 'Veseo i energičan pas koji voli šetnje i igru.',
         image: '/images/tosi.jpg'
       },

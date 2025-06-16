@@ -86,34 +86,63 @@ const Home = () => {
       </section>
 
       {/* How to help section */}
+     
       <section className="help-section py-5 bg-light">
         <Container>
-          <h2 className="text-center mb-5">Kako možete pomoći?</h2>
+          <h2 className="text-center mb-5">Kako možete pomoći napuštenim životinjama?</h2>
           <Row>
-            <Col md={4} className="text-center mb-4">
-              <div className="help-icon mb-3">
-                <i className="bi bi-house-heart" style={{ fontSize: '2rem', color: '#FF7F50' }}></i>
-              </div>
-              <h3>Udomite</h3>
-              <p>Dajte dom napuštenoj životinji i promenite joj život</p>
-            </Col>
-            <Col md={4} className="text-center mb-4">
+            <Col md={3} className="text-center mb-4">
               <div className="help-icon mb-3">
                 <i className="bi bi-cash-coin" style={{ fontSize: '2rem', color: '#FF7F50' }}></i>
               </div>
-              <h3>Donirajte</h3>
-              <p>Vaša finansijska pomoć nam omogućava bolju negu</p>
+              <h3>
+                <Link to="/donate" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  Donirajte
+                </Link>
+              </h3>
+              <p>Vaša finansijska pomoć nam omogućava bolju njegu</p>
             </Col>
-            <Col md={4} className="text-center mb-4">
+
+            <Col md={3} className="text-center mb-4">
               <div className="help-icon mb-3">
                 <i className="bi bi-people" style={{ fontSize: '2rem', color: '#FF7F50' }}></i>
               </div>
-              <h3>Volontirajte</h3>
-              <p>Posvetite svoje vreme i ljubav našim štićenicima</p>
+              <h3>
+                <Link to="/volunteer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  Volontirajte
+                </Link>
+              </h3>
+              <p>Posvetite svoje vrijeme i ljubav našim štićenicima</p>
+            </Col>
+
+            <Col md={3} className="text-center mb-4">
+              <div className="help-icon mb-3">
+                <i className="bi bi-house-heart" style={{ fontSize: '2rem', color: '#FF7F50' }}></i>
+              </div>
+              <h3>
+                <Link to="/education" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  Educirajte se
+                </Link>
+              </h3>
+              <p>Odgovorna briga o životinjama počinje edukacijom i razumijevanjem njihovih potreba</p>
+            </Col>
+
+            <Col md={3} className="text-center mb-4">
+              <div className="help-icon mb-3">
+                <i className="bi bi-chat-left-text" style={{ fontSize: '2rem', color: '#FF7F50' }}></i>
+              </div>
+              <h3>
+                <Link to="/forum" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  Razmijenite iskustva
+                </Link>
+              </h3>
+              <p>Razmjenom znanja, iskustava i savjeta doprinosite boljoj zaštiti i njezi životinja</p>
             </Col>
           </Row>
         </Container>
       </section>
+
+
 
       {/* Call to action */}
       <section className="cta-section py-5 text-white">

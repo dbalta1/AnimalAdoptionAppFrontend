@@ -12,7 +12,7 @@ const About = () => {
         <Row className="align-items-center">
           <Col md={6}>
             <img 
-              src="/images/team.jpg" 
+              src="/images/azil.jpg" 
               alt="Naš tim u azilu" 
               className="img-fluid rounded shadow"
             />

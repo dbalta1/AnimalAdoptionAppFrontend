@@ -70,26 +70,7 @@ const AppNavbar = () => {
               onClick={closeNavbar}
             >
               O nama
-            </Nav.Link>
-            
-            <Nav.Link 
-              as={Link} 
-              to="/donate" 
-              className={location.pathname === '/donate' ? 'active' : ''}
-              onClick={closeNavbar}
-            >
-              Donirajte
-            </Nav.Link>
-
-
-            <Nav.Link 
-              as={Link} 
-              to="/forum" 
-              className={location.pathname === '/forum' ? 'active' : ''}
-              onClick={closeNavbar}
-            >
-              Forum
-            </Nav.Link>
+            </Nav.Link>      
             
             <Nav.Link 
               as={Link} 
