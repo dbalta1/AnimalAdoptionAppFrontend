@@ -115,7 +115,15 @@ const Animals = () => {
           <Card className="h-100 text-center d-flex align-items-center justify-content-center p-3 border-dashed">
             <Card.Body>
               <p>Dodaj novu životinju</p>
-              <Button as={Link} to="/add-animal" variant="success">
+              <Button 
+                as={Link} 
+                to="/add-animal" 
+                style={{
+                  backgroundColor: '#FF7F50',
+                  borderColor: '#FF7F50',
+                  color: 'white'
+                }}
+              >
                 + Dodaj
               </Button>
             </Card.Body>
