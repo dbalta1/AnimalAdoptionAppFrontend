@@ -144,6 +144,11 @@ const handleSubmit = async (e) => {
         variant="outline-secondary" 
         onClick={() => navigate(-1)} 
         className="mb-4 back-button"
+        style={{
+          color: '#6c757d',
+          borderColor: '#6c757d',
+          backgroundColor: 'transparent'
+        }}
       >
         &larr; Nazad na listu
       </Button>
@@ -214,7 +219,7 @@ const handleSubmit = async (e) => {
           <Card.Body>
             <Card.Title className="mb-4 form-title">
               <h3 style={{ color: '#FF7F50' }}>Forma za udomljavanje</h3>
-              <p className="text-muted">Podaci za {animal.name}</p>
+              
             </Card.Title>
             
             {submitted ? (

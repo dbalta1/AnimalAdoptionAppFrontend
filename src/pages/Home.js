@@ -12,6 +12,7 @@ const featuredAnimals = [
     breed: 'Američka akita',
     age: '2 godine',
     location: 'Jablanica',
+    location: 'Jablanica',
     image: '/images/tosi.jpg'
   },
   {
@@ -20,6 +21,7 @@ const featuredAnimals = [
     breed: 'Evropska mačka',
     age: '4 godine',
     location: 'Sarajevo',
+    location: 'Sarajevo',
     image: '/images/bucko.jpg'
   },
   {
@@ -27,6 +29,7 @@ const featuredAnimals = [
     name: 'Felix',
     breed: 'Mješanac',
     age: '1 godina',
+    location: 'Mostar',
     location: 'Mostar',
     image: '/images/feliks2.jpg'
   }

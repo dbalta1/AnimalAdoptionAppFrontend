@@ -123,3 +123,66 @@ const AppNavbar = () => {
 };
 
 export default AppNavbar;
+<<<<<<< HEAD
+=======
+
+/*
+import React from 'react';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+
+const AppNavbar = () => {
+  const { currentUser, logout } = useAuth();
+
+  return (
+    <Navbar bg="light" expand="lg" className="shadow-sm">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="fw-bold text-orange">
+          Second Chance Friends
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">Početna</Nav.Link>
+            <Nav.Link as={Link} to="/animals">Ljubimci</Nav.Link>
+            <Nav.Link as={Link} to="/about">O nama</Nav.Link>
+            <Nav.Link as={Link} to="/volunteer">Volontiraj</Nav.Link>
+            <Nav.Link as={Link} to="/donate">Doniraj</Nav.Link>
+            
+            {/* Admin link - prikazuje se samo adminima }
+            {currentUser?.role === 'admin' && (
+              <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
+            )}
+          </Nav>
+          <Nav>
+            {currentUser ? (
+              <NavDropdown 
+                title={currentUser.name || "Profil"} 
+                id="basic-nav-dropdown"
+                align="end"
+              >
+                <NavDropdown.Item as={Link} to="/profile">
+                  Moj profil
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={logout}>
+                  Odjavi se
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <>
+                <Nav.Link as={Link} to="/login">Prijava</Nav.Link>
+                <Nav.Link as={Link} to="/register">Registracija</Nav.Link>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default AppNavbar;
+*/
+>>>>>>> 1fa3f80cdfbbc2968dd15c81f26ebd4bc8f7698d
