@@ -1,0 +1,23 @@
+.admin-dashboard {
+  max-width: 1200px;
+}
+
+.admin-dashboard h1 {
+  color: #FF7F50;
+  font-weight: bold;
+}
+
+.admin-dashboard .card {
+  transition: transform 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard .card:hover {
+  transform: translateY(-5px);
+}
+
+.admin-dashboard .display-4 {
+  color: #FF7F50;
+  font-weight: bold;
+}

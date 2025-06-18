@@ -11,6 +11,7 @@ const featuredAnimals = [
     name: 'Tosi',
     breed: 'Američka akita',
     age: '2 godine',
+    location: 'Jablanica',
     image: '/images/tosi.jpg'
   },
   {
@@ -18,6 +19,7 @@ const featuredAnimals = [
     name: 'Bucko',
     breed: 'Evropska mačka',
     age: '4 godine',
+    location: 'Sarajevo',
     image: '/images/bucko.jpg'
   },
   {
@@ -25,6 +27,7 @@ const featuredAnimals = [
     name: 'Felix',
     breed: 'Mješanac',
     age: '1 godina',
+    location: 'Mostar',
     image: '/images/feliks2.jpg'
   }
 ];
@@ -65,7 +68,8 @@ const Home = () => {
                     <Card.Title>{animal.name}</Card.Title>
                     <Card.Text>
                       <strong>Rasa:</strong> {animal.breed}<br />
-                      <strong>Starost:</strong> {animal.age}
+                      <strong>Starost:</strong> {animal.age}<br />Add commentMore actions
+                      <strong>Lokacija:</strong> {animal.location}
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>

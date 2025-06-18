@@ -83,29 +83,56 @@ const AnimalProfile = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Adoption request:', {
-      animalId: animal.id,
-      animalName: animal.name,
-      ...formData
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const token = localStorage.getItem('token'); // JWT token iz localStorage
+
+    const response = await fetch('http://localhost:8081/zahtjevi', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // dodaj token za autorizaciju
+      },
+      body: JSON.stringify({
+        ljubimacId: animal.id,
+        korisnikEmail: formData.email,
+        ime: formData.name,
+        telefon: formData.phone,
+        adresa: formData.address,
+        tipStanovanja: formData.livingType,
+        iskustvo: formData.experience,
+        razlog: formData.reason,
+        dodatno: formData.additional
+      })
     });
-    setSubmitted(true);
-    setTimeout(() => {
-      setShowAdoptionForm(false);
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        livingType: '',
-        experience: '',
-        reason: '',
-        additional: ''
-      });
-    }, 5000);
-  };
+
+    if (response.ok) {
+      setSubmitted(true);
+      setTimeout(() => {
+        setShowAdoptionForm(false);
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          address: '',
+          livingType: '',
+          experience: '',
+          reason: '',
+          additional: ''
+        });
+      }, 5000);
+    } else {
+      console.error('Greška prilikom slanja zahtjeva:', await response.text());
+      alert('Neuspješno slanje zahtjeva. Provjerite podatke.');
+    }
+  } catch (error) {
+    console.error('Greška:', error);
+    alert('Došlo je do greške pri slanju zahtjeva.');
+  }
+};
 
   if (!animal) {
     return <Container className="text-center mt-5"><h2>Životinja nije pronađena</h2></Container>;

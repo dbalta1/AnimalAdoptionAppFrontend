@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Card, Alert, Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 function Register() {
   const [form, setForm] = useState({
@@ -14,7 +16,7 @@ function Register() {
     spol: '',
     godine: '',
     adresa: '',
-    uloga: 'USER',
+    uloga: 'KORISNIK',
   });
 
   const [error, setError] = useState('');
@@ -23,31 +25,73 @@ function Register() {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // Validacija
-    for (let key in form) {
-      if (form[key] === '' && key !== 'potvrdiPassword') {
-        setError('Molimo popunite sva polja.');
-        setSuccess('');
-        return;
-      }
-    }
-
-    if (form.password !== form.potvrdiPassword) {
-      setError('Lozinke se ne poklapaju.');
+  for (let key in form) {
+    if (form[key] === '' && key !== 'potvrdiPassword') {
+      setError('Molimo popunite sva polja.');
       setSuccess('');
       return;
     }
+  }
 
-    // TODO: Pošalji formu na backend
-    console.log('Podaci za registraciju:', form);
+  if (form.password !== form.potvrdiPassword) {
+    setError('Lozinke se ne poklapaju.');
+    setSuccess('');
+    return;
+  }
 
-    setError('');
-    setSuccess('Registracija uspješna!');
-  };
+  try {
+    const response = await fetch('http://localhost:8090/korisnici/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    console.log("Response status:", response.status);
+    console.log("Response headers:", [...response.headers.entries()]);
+
+    // Pokušaj da pročitaš tekst odgovora (umjesto json), da vidiš šta backend vraća
+    const text = await response.text();
+    console.log("Response text:", text);
+
+    if (response.ok) {
+      setError('');
+      setSuccess('Registracija uspješna! Možete se prijaviti.');
+      setForm({
+        ime: '',
+        prezime: '',
+        username: '',
+        email: '',
+        password: '',
+        potvrdiPassword: '',
+        telefon: '',
+        spol: '',
+        godine: '',
+        adresa: '',
+        uloga: 'KORISNIK',
+      });
+      navigate('/login');
+    } else {
+      // Pokušaj parsirati JSON ako postoji
+      try {
+        const data = JSON.parse(text);
+        setError(data.message || 'Došlo je do greške.');
+      } catch {
+        setError('Došlo je do greške. Server je vratio: ' + text);
+      }
+      setSuccess('');
+    }
+  } catch (err) {
+    console.error("Fetch error:", err);
+    setError('Neuspješan pokušaj registracije. Pokušajte ponovo.');
+    setSuccess('');
+  }
+};
+
 
   return (
     <>
@@ -101,8 +145,8 @@ function Register() {
                 <Form.Label>Spol</Form.Label>
                 <Form.Select name="spol" value={form.spol} onChange={handleChange}>
                   <option value="">Odaberi...</option>
-                  <option value="MUSKO">Muško</option>
-                  <option value="ZENSKO">Žensko</option>
+                  <option value="MUSKI">Muško</option>
+                  <option value="ZENSKI">Žensko</option>
                 </Form.Select>
               </Form.Group>
 
