@@ -27,7 +27,7 @@ function App() {
         <Route path="/animals/:id" element={<AnimalProfile />} />
         <Route path="/admin-dashboard/" element={<AdminDashboard />} />
         <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/add-animal" element={<AddAnimal />} /> {/* Dodajte ovu rutu */}
+        <Route path="/add-animal" element={<AddAnimal/>} /> {/* Dodajte ovu rutu */}
       </Routes>
     </Router>
   );
