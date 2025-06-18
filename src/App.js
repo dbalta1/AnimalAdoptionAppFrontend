@@ -9,7 +9,8 @@ import Animals from './pages/Animals';
 import About from './pages/About'; 
 import DonationForm from './pages/DonationForm';
 import Volunteer from './pages/Volunteer';
-import DodajZivotinju from './pages/DodajZivotinju'; // Dodajte ovaj import
+import AdminDashboard from './pages/AdminDashboard';
+import AddAnimal from './pages/AddAnimal'; // Dodajte ovaj import
 import './App.css';
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<DonationForm />} />
         <Route path="/animals/:id" element={<AnimalProfile />} />
+        <Route path="/admin-dashboard/" element={<AdminDashboard />} />
         <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/add-animal" element={<DodajZivotinju />} /> {/* Dodajte ovu rutu */}
+        <Route path="/add-animal" element={<AddAnimal/>} /> {/* Dodajte ovu rutu */}
       </Routes>
     </Router>
   );

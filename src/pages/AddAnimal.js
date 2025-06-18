@@ -40,11 +40,46 @@ const DodajZivotinju = () => {
         }
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Podaci za slanje:', formData);
-        navigate('/');
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const podaci = {
+        sklonisteId: 1, // npr. testno sklonište
+        ime: formData.ime,
+        rasa: formData.rasa,
+        velicina: formData.velicina,
+        energicnost: formData.energija,
+        vrsta: "Pas", // ili "Mačka" – dodaj input ako želiš
+        spol: "MUŠKO", // dodaj spol ako treba
+        godine: 2, // napravi polje ako treba
+        slaganjeSaDjecom: formData.slaganjeSaDjecom === 'Da',
+        slaganjeSaDrugimLjubimcima: formData.slaganjeSaDrugimZivotinjama === 'Da',
+        zdravstveniProblemi: formData.zdravstveniProblemi === 'Da',
+        lokacija: formData.lokacija,
+        slika: preview || '' // Base64 string
     };
+
+    try {
+        const res = await fetch("http://localhost:8090/ljubimci", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+            },
+            body: JSON.stringify(podaci)
+        });
+
+        if (res.ok) {
+            alert("Životinja uspješno dodana!");
+            navigate("/");
+        } else {
+            alert("Greška prilikom dodavanja.");
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Greška na serveru.");
+    }
+};
 
     return (
         <Container className="dodaj-zivotinju-container">
@@ -225,5 +260,4 @@ const DodajZivotinju = () => {
         </Container>
     );
 };
-
 export default DodajZivotinju;
